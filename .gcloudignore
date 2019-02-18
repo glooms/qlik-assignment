@@ -22,5 +22,6 @@ __pycache__/
 *.swp
 *.pyc
 venv
+service/app.db
 Homeassignment.pdf
 TODO.txt
