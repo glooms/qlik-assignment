@@ -9,7 +9,10 @@ class Client(object):
             self.base_url = 'http://127.0.0.1:5000'
 
     def print_response(self, r):
-        print(json.dumps(r.json(), indent=4))
+        try:
+            print(json.dumps(r.json(), indent=4))
+        except:
+            print(r.text)
 
     def get(self, path):
         url = '/'.join([self.base_url] + path)

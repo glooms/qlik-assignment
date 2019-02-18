@@ -26,3 +26,5 @@ Homeassignment.pdf
 TODO.txt
 run_client.py
 client
+tests
+deploy.sh
