@@ -12,6 +12,7 @@ def index():
 
 @user_blueprint.route('/user', methods=['GET'])
 def users_get():
+    users = interface.get_all_users()
     data = {
         'users': [user.to_dict() for user in users]
     }

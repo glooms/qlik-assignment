@@ -8,9 +8,16 @@ class BlueprintTests(unittest.TestCase):
     base_url = "http://127.0.0.1:5000"
     
     def setUp(self):
+        try:
+            init_db()
+        except:
+            db.session.rollback()
+            drop_db()
+        init_db()
+
+    def tearDown(self):
         db.session.rollback()
         drop_db()
-        init_db()
 
     def get(self, path):
         url = '/'.join([self.base_url] + path)

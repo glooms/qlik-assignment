@@ -7,9 +7,16 @@ from sqlalchemy.exc import IntegrityError
 class ModelTests(unittest.TestCase):
     
     def setUp(self):
+        try:
+            init_db()
+        except:
+            db.session.rollback()
+            drop_db()
+        init_db()
+
+    def tearDown(self):
         db.session.rollback()
         drop_db()
-        init_db()
 
     def add_users(self, names):
         for name in names:
