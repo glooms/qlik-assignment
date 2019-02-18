@@ -4,7 +4,7 @@ from service.models import init_db, drop_db, User, Message
 from sqlalchemy.exc import IntegrityError
 
 
-class DatabaseTests(unittest.TestCase):
+class ModelTests(unittest.TestCase):
     
     def setUp(self):
         db.session.rollback()
@@ -19,7 +19,8 @@ class DatabaseTests(unittest.TestCase):
         data = {
             'body': body,
             'sender_id': sender_id,
-            'recipient_id': recipient_id
+            'recipient_id': recipient_id,
+            'is_palindrome': False
         }
         m = Message(**data)
         db.session.add(m)

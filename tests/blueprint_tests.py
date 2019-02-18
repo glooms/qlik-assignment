@@ -4,7 +4,7 @@ from service import db
 from service.models import init_db, drop_db
 
 
-class RouteUseCaseTests(unittest.TestCase):
+class BlueprintTests(unittest.TestCase):
     base_url = "http://127.0.0.1:5000"
     
     def setUp(self):
