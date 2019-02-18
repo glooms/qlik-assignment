@@ -13,7 +13,6 @@ def user_get_received(user_name):
         return (jsonify(data), 404)
     messages = interface.get_received_by(user)
     data = {
-        'user': user.to_dict(),
         'received': [msg.to_dict() for msg in messages]
     }
     return (jsonify(data), 200)

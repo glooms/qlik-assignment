@@ -22,6 +22,7 @@ __pycache__/
 *.swp
 *.pyc
 venv
-service/app.db
 Homeassignment.pdf
 TODO.txt
+run_client.py
+client

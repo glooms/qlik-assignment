@@ -1,3 +1,5 @@
+import re
+
 from service.models.user import User
 from service.models.message import Message
 from service import db
@@ -83,7 +85,8 @@ def del_message_by_user_and_id(user, msg_id):
 
 
 def is_palindrome(text):
-    string = text.lower()
+    regex = re.compile('[^a-z]')
+    string = regex.sub('', text.lower())
     l = int(len(string) / 2)
     for i in range(l):
         if string[i] != string[-i -1]:
