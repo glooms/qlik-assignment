@@ -67,12 +67,16 @@ Lastly, `service/config.py` specifies the path to the database.
 
 ## Tests & Client
 
-Tests can be found under `tests/` and are generally run as:
+Tests can be found under `tests/` and are run as follows:
 
-`python -m unittest tests/blueprint\_tests.py'
-`python -m unittest tests/model\_tests.py'
+`python -m unittest tests/blueprint\_tests.py'  
+`python -m unittest tests/model\_tests.py'  
 
-note that to run the blueprint tests the server must be running locally.
+or run both:
+
+`python -m unittest tests/*.py`
+
+However, note that to run the blueprint tests the server must be running locally.
 
 Furthermore, there is a client class located in the `client/client.py` file which
 can be used to run locally or remote. You can create an instance of the class in the
