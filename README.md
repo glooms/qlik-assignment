@@ -83,30 +83,33 @@ client should connect to localhost or the deployed app.
 
 ## API
 
-**GET**     `/user`
+**GET**     `/user`  
 Returns a list of all created users.
 
-**POST**    `/user`                         payload: name
-Creates a new user with the specified name and returns the created user.
+**POST**    `/user`  
+payload: name  
+Creates a new user with the specified name.  
+Returns the created user.
 
-**GET**     `/user/<user_name>`
+**GET**     `/user/<user_name>`  
 Returns the user with the specified username.
 
-**GET**     `/user/<user_name>/message`
+**GET**     `/user/<user_name>/message`  
 Returns a list of all received messages by the user.
 
-**POST**    `/user/<uesr_name>/message`     payload: name, message
+**POST**    `/user/<uesr_name>/message`  
+payload: name, message  
 Creates and sends a message from the user with the name in the url to the user specified in
-the payload.
+the payload.  
 Return the message created.
 
-**GET**     `/user/<user_name>/message/<message_id>`
+**GET**     `/user/<user_name>/message/<message_id>`  
 Returns the message with the specified id if it was either sent or received by the user.
 
-**DELETE**  `/user/<user_name>/message/<message_id>`
+**DELETE**  `/user/<user_name>/message/<message_id>`  
 Deletes the message specified by the id if it was either sent or received by the user.
 
-**GET**     `/user/<user_name>/message/sent`
+**GET**     `/user/<user_name>/message/sent`  
 Returns a list of all messages sent by the user.
 
 I recommend glancing over the `client/client.py` file if there is any confusion regarding
