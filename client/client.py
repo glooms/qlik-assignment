@@ -37,7 +37,7 @@ class Client(object):
 
     def help(self):
         print('Available methods:\n')
-        exclude = ['base_url', 'print_response', 'get', 'post', 'delete']
+        exclude = ['base_url', 'print_response', 'get', 'post', 'delete', 'help']
         methods = []
         for attr in dir(self):
             if not attr in exclude and not '__' in attr:
