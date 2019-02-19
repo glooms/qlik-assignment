@@ -63,6 +63,8 @@ The `service/__init__.py` file is what creates the app, db and registers the blu
 The `main.py` file runs the server (locally) as well as initiates (and wipes) the database so that it is in a clean state.
 Database used here is sqlite3 which does not seem to work on Google App Engine but works fine locally.
 
+Lastly, `service/config.py` specifies the path to the database.
+
 ## Tests & Client
 
 Tests can be found under `tests/` and are generally run as:
@@ -115,4 +117,3 @@ Returns: A list of all messages sent by the user.
 
 I recommend glancing over the `client/client.py` file if there is any confusion regarding
 payloads or urls since all the requests listed here can be called from the client.
-The client will also print out the json response when a method is called.

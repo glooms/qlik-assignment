@@ -1,13 +1,27 @@
-from flask import Blueprint, request, jsonify
+from flask import Blueprint, request, jsonify, url_for, current_app
 from service.models import interface
 
 
 user_blueprint = Blueprint('user', __name__)
 
-
 @user_blueprint.route('/', methods=['GET'])
 def index():
-    return 'Hello World!'
+    urls = {
+        'GET': [],
+        'DELETE': [],
+        'POST': []
+    }
+    filter_methods = {'GET', 'DELETE', 'POST'}
+    for rule in current_app.url_map.iter_rules():
+        if not 'static' in rule.rule:
+            methods = filter_methods.intersection(rule.methods)
+            for m in methods:
+                urls[m] += [rule.rule]
+    data = {
+        'message': 'Hello! These are the available routes.',
+        'routes': urls
+    }
+    return jsonify(data, 200)
 
 
 @user_blueprint.route('/user', methods=['GET'])
