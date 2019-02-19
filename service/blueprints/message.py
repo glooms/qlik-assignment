@@ -102,7 +102,7 @@ def user_del_message_by_id(user_name, message_id):
 
 
 @message_blueprint.route('/user/<user_name>/message/sent', methods=['GET'])
-def user_get_sent_msessages(user_name):
+def user_get_sent_messages(user_name):
     user = interface.get_user(user_name)
     if not user:
         data = {
