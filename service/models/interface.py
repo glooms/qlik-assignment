@@ -78,8 +78,7 @@ def get_message_by_user_and_id(user, msg_id):
     return message
 
 
-def del_message_by_user_and_id(user, msg_id):
-    message = get_message_by_user_and_id(user, msg_id)
+def del_message_by_user_and_id(message):
     if not message:
         return False
     db.session.delete(message)

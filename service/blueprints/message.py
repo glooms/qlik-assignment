@@ -89,14 +89,20 @@ def user_del_message_by_id(user_name, message_id):
             'error': 'Invalid message id %s.' % message_id
         }
         return (jsonify(data), 400)
-    rv = interface.del_message_by_user_and_id(user, message_id)
-    if not rv:
+    message = interface.get_message_by_user_and_id(user, message_id)
+    if not message:
         data = {
             'error': 'No message found with id %s.' % message_id
         }
         return (jsonify(data), 404)
+    rv = interface.del_message_by_user_and_id(message)
+    if not rv:
+        data = {
+            'error': 'Message %s not deleted.' % message_id
+        }
+        return (jsonify(data), 500)
     data = {
-        'response': 'Message deleted.'
+        'response': 'Message %s deleted.' % message_id
     }
     return (jsonify(data), 200)
 

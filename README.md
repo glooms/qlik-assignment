@@ -16,9 +16,9 @@ The app only responds in json format.
 
 To build run the following commands:
 
-`virtualenv -p python3 venv`
-`source venv/bin/activate`
-`pip install -r requirements.txt`
+`virtualenv -p python3 venv`  
+`source venv/bin/activate`  
+`pip install -r requirements.txt`  
 
 ## Run locally
 
