@@ -69,7 +69,7 @@ def user_get_message_by_id(user_name, message_id):
         }
         return (jsonify(data), 404)
     data = {
-        'received': message.to_dict()
+        'message': message.to_dict()
     }
     return (jsonify(data), 200)
 
@@ -92,9 +92,9 @@ def user_del_message_by_id(user_name, message_id):
     rv = interface.del_message_by_user_and_id(user, message_id)
     if not rv:
         data = {
-            'error': 'Delete of message with id %s unsuccessfull.' % message_id
+            'error': 'No message found with id %s.' % message_id
         }
-        return (jsonify(data), 500)
+        return (jsonify(data), 404)
     data = {
         'response': 'Message deleted.'
     }

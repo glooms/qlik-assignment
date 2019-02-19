@@ -29,3 +29,10 @@ app = create_app()
 db = create_db()
 
 register_routes()
+
+@app.before_first_request
+def before_first_request():
+    eng = db.get_engine()
+    if not eng.table_names():
+        from service.models import init_db
+        init_db()

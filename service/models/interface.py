@@ -79,7 +79,9 @@ def get_message_by_user_and_id(user, msg_id):
 
 
 def del_message_by_user_and_id(user, msg_id):
-    message = get_message_by_user_and_id(user, msg_id) 
+    message = get_message_by_user_and_id(user, msg_id)
+    if not message:
+        return False
     db.session.delete(message)
     return try_commit()
 

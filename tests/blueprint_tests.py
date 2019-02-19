@@ -73,12 +73,12 @@ class BlueprintTests(unittest.TestCase):
     def test_get_message(self):
         names = ['Emilia', 'Janne']
         self.create_users(names)
-        self.post_message(*names, 'Hello')
+        self.post_message(*names, 'On no')
         path = ['user', names[0], 'message', '1']
         r = self.get(path)
         self.assertEqual(r.status_code, 200)
         data = r.json()
-        self.assertFalse(data['received']['is_palindrome'])
+        self.assertTrue(data['message']['is_palindrome'])
     
     def test_del_message(self):
         names = ['Emilia', 'Janne']
